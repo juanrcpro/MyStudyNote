@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @task %>
+
+<div class="margin-top">
+  <p class="label">Categorias:</p>
+  <% @task.categories.each do |category|%>
+    <span class="badge badge-pill padding" style="background-color:<%= category.color%>">
+      <%=link_to category.name, category, class:"text-white" %>
+    </span>
+  <%end%>
+</div>
+
+<div>
+  <%= link_to "Edit this task", edit_task_path(@task) %> |
+  <%= link_to "Back to tasks", tasks_path %>
+
+  <%= button_to "Destroy this task", @task, method: :delete %>
+</div>

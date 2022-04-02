@@ -1,0 +1,59 @@
+<%= form_with(model: task) do |form| %>
+  <% if task.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="container-sm border border-info rounded-3">
+    <div class= "mb-3">
+      <br>
+      <%= form.label "Titulo", style: "display: block", class: "form-label" %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class= "mb-3">
+      <%= form.label "Descripcion de la tarrea", style: "display: block", class: "form-label"%>
+      <%= form.text_area :description, class: "form-control", placeholder: "Realacione aqui todo lo contemplado para el desarrollo de la tarea" %>
+    </div>
+
+    <div class= "mb-3 text-center">
+      <div class="row">
+        <label class="col-6 col-sm-3">
+          <%= form.label "Fecha de Inicio", style: "display: block" %>
+          <%= form.date_field :start_date %>
+        </label>
+        <label class="col-6 col-sm-3">
+          <%= form.label "Fecha de Finalizacion", style: "display: block" %>
+          <%= form.date_field :end_date %>
+        </label>
+      </div>
+    </div>
+
+    <div class= "mb-3">
+      <%= form.label "Categorias:", style: "display: block" %>
+      <br>
+      <div class="row text-center">
+        <% @categories.each do |category|%>
+          <label class="col-6 col-sm-2">
+            <%# tipo de checbox con las categorias seleccionada y las que no, de multiple seleccion, valor delcheckbox, su estado por defecto al mostrarce %>
+            <%=form.check_box :category_elements, {multiple: true}, category.id, nil %>
+            <%= category.name%>
+          </label>
+
+        <%end%>
+        <%#<%= form.text_field :category_elements %>
+      </div>
+    </div>
+  </div>
+    <br>
+  <div>
+    <%= form.submit "Crear Tarea", class:"btn btn-primary" %>
+  </div>
+<% end %>

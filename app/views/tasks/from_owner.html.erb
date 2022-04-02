@@ -1,0 +1,7 @@
+<div class="container-sm">
+    <br>
+    <h1>Cuadernos del usuario: <%= @user.email%></h1>
+
+    <%#En ves de pasar la vista parcial pasamos el objeto del metodo en el controlador%>
+    <%= render @user.tasks%>
+</div>

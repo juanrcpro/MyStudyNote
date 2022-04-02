@@ -1,0 +1,17 @@
+<%#vistas parciales que son llamadas desde el render de la vista padre index
+entiende que es el conjunto de objetos y los recorre para mostrar
+el archivo debe llamarce igual que el modelo en minuscula%>
+<div class="row">
+  <div class="col-sm-6">
+  <br>
+    <div class="card mb-3 border border-info rounded-3">
+      <div class="card-body">
+        <h5 class="card-title"><%=notebook.id%>) <%=notebook.title%></h5>
+        <p class="card-text"><%=notebook.description%></p>
+        <p class="card-text"><%= notebook.created_at%></p>
+        <%= link_to "ver mas", notebook%>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

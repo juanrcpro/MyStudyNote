@@ -1,0 +1,29 @@
+<div class="container-sm margin-top-3">
+    <br>
+    <h4 class="font-weight-bold text-uppercase text-center "> Editar Uusuario </h4>
+
+    <%# formulario con el registro a editar en model%>
+    <%=form_with(model: current_user, local: true) do |form|%>
+        <div> 
+            
+            <% if current_user.avatar.attached?%>
+                <%= image_tag url_for(current_user.avatar), height:200, class:"mx-auto d-block"%>
+            <%end%>
+        
+        </div>
+        <br>
+        <div class="border border-info text-center rounded-3">
+            <br>
+            <div>
+                <%= form.label :avatar, "Suba la imagen de su Avatar"%>
+            </div>
+                <br>
+            <div>
+                <%= form.file_field :avatar%>
+            </div>
+                <br>
+        </div>
+        <br>
+        <%= form.submit "Guardar", class:"btn btn-primary"%>
+    <% end %>
+</div>

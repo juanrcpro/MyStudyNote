@@ -1,0 +1,31 @@
+<%#vistas parciales que son llamadas desde el render de la vista padre edit,create 
+<%#Vinculacion de un formulario a un objeto de modelo  %>
+<%=form_with(model: @notebook, local:true) do |form| %>
+    <br>
+    <div class="container-sm border border-info rounded-3">
+        <br>
+        <div class="text-center">
+            <%= form.label "Nombre del Cuaderno:", { class: "form-label"} %>
+            <%= form.text_field :title%>
+        </div>
+        <br>
+        <div class="">
+            <%= form.label "Descripcion"%>
+            <%= form.text_area :description, { class: "form-control", placeholder: "Breve descripcion del contenido" }%>
+        </div>
+        <br>
+        <div class="">
+            <%= form.label :content%>
+            <%# %>
+            <%# complemento de text, rails action_text:install%>
+            <%= form.rich_text_area :content%>
+        </div>  
+        <br>
+
+    </div>
+    <br>
+    <div class="container-sm">
+        <%# accion botton %>
+        <%= form.submit "Crear Categoria", class:"btn btn-primary"%>
+    </div>
+<% end %>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyStudyApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+    <%if notice%>
+      <p class="alert alert-primary"><%= notice %></p>
+    <%end%>
+    <%if alert%>
+      <p class="alert alert-danger"><%= alert %></p>
+    <%end%>
+    
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a  class="navbar-brand" href="#">My Study Schedule</a>
+          </li>
+        </ul>  
+      </div>
+    </nav>
+    <%= render 'partials/nav' %>
+
+    
+    <%= yield %>
+  </body>
+</html>

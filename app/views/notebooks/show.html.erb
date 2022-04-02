@@ -1,0 +1,23 @@
+
+<%#Apartir de la instancia traer los registros de cada columna%>
+<br>
+<div class="card text-center container-sm">
+    <h4>Cuaderno</h4>
+  <div class="card-header">
+    <h5>Creado por: <strong><%= @notebook.user.email%></strong></h5>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title"><%= @notebook.title%></h3>
+    <p class="card-text"><%= @notebook.description%></p>
+    <p class="card-text"><%= @notebook.content%></p>
+    
+    <a><%= button_to "Editar", edit_notebook_path, class:"btn btn-outline-warning" %></a>
+    <%= link_to 'Editar', edit_notebook_path%>
+    <br>
+    <a><%= button_to "Eliminar", @notebook, method: :delete,class:"btn btn-outline-danger" %></a>
+    
+  </div>
+  <div class="card-footer text-muted">
+    <%= @notebook.created_at%>
+  </div>
+</div>

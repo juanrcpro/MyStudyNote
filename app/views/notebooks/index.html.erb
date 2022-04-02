@@ -1,0 +1,16 @@
+<div class="container-sm">
+    <br>
+    <h3>Mis cuadernos</h3>
+
+<%#En ves de pasar la vista parcial pasamos el objeto del metodo en el controlador%>
+    <%= render @notebooks%>
+</div>
+
+<%#<% @notebooks.each do |notebook| %
+<%#    <div class="card" style="padding:15px;max-width:300px;margin-top:1em">
+ <%#       < class="text-uppercase"><%=notebook.title%>
+<%#        < class=""><%=notebook.description%>
+<%#        < class="text-secondary"><%= notebook.created_at%>
+<%#        <%= link_to "ver mas", notebook%>
+<%#    </div>   
+<%end%>

@@ -1,0 +1,20 @@
+<br>
+<div class="container-sm">
+    <h3> Bienvenido de vuelta <%= current_user.email%></h3>
+
+    <p>¿Que hay planeado para el dia de hoy?</p>
+    <br>
+    <% if current_user.avatar.attached?%>
+        <img class=" rounded-circle border border-success"<%= image_tag url_for(current_user.avatar), height:200%>
+    <%end%>
+    <br>
+    <div>
+        <br>
+        <%if user_signed_in?%>
+            <%=button_to "Cerrar Sesion", destroy_user_session_path, method: :delete, class:"btn btn-danger" %>
+        <%end%>
+    </div>
+
+</div>
+
+
